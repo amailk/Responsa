@@ -1,12 +1,11 @@
 import React from 'react';
-import {Home, Courses, Teacher} from './components';
+import {Home, Courses, CourseLive} from './components';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 import './App.css';
 
-import {CourseLive} from "./components/CourseLive";
-
 const App = () => (
-      <Router>
+    <Router>
         <div>
             <ul className="menu" >
                 <li className="menuitem"><Link className="link" to="/">Home</Link></li>
@@ -15,10 +14,9 @@ const App = () => (
 
             <Route exact path="/" component={Home}/>
             <Route path="/courses" component={Courses}/>
-            <Route path="/courseLive/:courseId" component={CourseLive} />
-
+            <Route path="/courseLive/:courseId" component={CourseLive}/>
         </div>
-      </Router>
+    </Router>
 );
 
 export default App;
