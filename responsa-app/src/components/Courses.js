@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {CourseItem} from "./CourseItem";
+import './Courses.css'
+
 
 import * as firebase from 'firebase'
 
@@ -28,11 +30,7 @@ export class Courses extends Component {
   render() {
     return(
       <div>
-        <div>
-          <h2>Courses</h2>
-        </div>
-
-        <ul>
+        <ul className={"course-list"}>
             {this.state.courses.map(course =>
                 <CourseItem key={course.id} {...course}/>
             )}

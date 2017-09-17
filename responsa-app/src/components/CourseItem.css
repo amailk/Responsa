@@ -1,0 +1,15 @@
+.course-item {
+    border: 2px solid dimgray;
+    border-radius: 8px;
+    background-color: bisque;
+    text-align:center;
+    margin:10px;
+}
+
+.course-link {
+
+}
+
+@media screen and (max-width:600px) {
+    .course-item .course-link {float:none;}
+}
