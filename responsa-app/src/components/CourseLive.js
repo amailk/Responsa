@@ -17,7 +17,8 @@ export class CourseLive extends Component {
         text : "",
         answers : []
       },
-      selected: new Set()
+      selected: new Set(),
+      userId : "user1"
     }
   }
 
@@ -59,7 +60,7 @@ export class CourseLive extends Component {
   }
 
   onSubmit() {
-    var dbRef = firebase.database().ref('answers/' + this.state.liveQuestion + "/user1");
+    var dbRef = firebase.database().ref('answers/' + this.state.liveQuestion + "/" + this.state.userId);
     dbRef.set({
       answer: [...this.state.selected]
     });
