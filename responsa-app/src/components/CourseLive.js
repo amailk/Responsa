@@ -63,6 +63,7 @@ export class CourseLive extends Component {
         <div>
           <h2>{this.state.question.text}</h2>
 
+            <form>
             {this.state.question.answers.map(answer =>
               <Checkbox
                 key={answer}
@@ -71,6 +72,7 @@ export class CourseLive extends Component {
                 onCheck={this.onCheck.bind(this, answer)}
               />
             )}
+            </form>
         </div>
       </div>
     )
