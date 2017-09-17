@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Checkbox from 'material-ui/Checkbox';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import * as firebase from 'firebase'
 
@@ -29,6 +30,7 @@ export class CourseLive extends Component {
     dbRef.on('value', course => {
       var liveQuestion = course.val().live.status;
       this.updateQuestion(liveQuestion);
+      this.setState({liveQuestion: liveQuestion});
     })
   }
 
@@ -56,6 +58,12 @@ export class CourseLive extends Component {
     return this.state.selected.has(index);
   }
 
+  onSubmit() {
+    var dbRef = firebase.database().ref('answers/' + this.state.liveQuestion + "/user1");
+    dbRef.set({
+      answer: [...this.state.selected]
+    });
+  }
 
   render() {
     return(
@@ -72,6 +80,14 @@ export class CourseLive extends Component {
                 onCheck={this.onCheck.bind(this, answer)}
               />
             )}
+
+            <br/>
+
+            <RaisedButton
+              label="Submit"
+              onClick={this.onSubmit.bind(this)}
+            />
+
             </form>
         </div>
       </div>
