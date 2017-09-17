@@ -107,7 +107,7 @@ export class Teacher extends React.Component {
           <h2>{this.state.question.text}</h2>
           <ul>
             <li><b>A</b> {this.state.question.answers[0]}</li>
-            <li><b>B</b> {this.state.question.answers[2]}</li>
+            <li><b>B</b> {this.state.question.answers[1]}</li>
             <li><b>C</b> {this.state.question.answers[2]}</li>
             <li><b>D</b> {this.state.question.answers[3]}</li>
           </ul>
