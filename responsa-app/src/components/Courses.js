@@ -31,12 +31,9 @@ export class Courses extends Component {
   render() {
     return(
       <div>
-        <ul className={"course-list"}>
             {this.state.courses.map(course =>
                 <CourseItem key={course.id} {...course}/>
             )}
-
-        </ul>
       </div>
     )
   }
