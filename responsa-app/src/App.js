@@ -10,9 +10,9 @@ const App = () => (
   <MuiThemeProvider>
     <Router>
       <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/courses">Courses</Link></li>
+        <ul className="menu">
+          <li className="menuitem"><Link className="link" to="/">Home</Link></li>
+          <li className="menuitem"><Link className="link" to="/courses">Courses</Link></li>
         </ul>
 
         <Route exact path="/" component={Home}/>
