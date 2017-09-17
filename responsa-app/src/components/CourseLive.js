@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Checkbox from 'material-ui/Checkbox';
 
 import * as firebase from 'firebase'
 
@@ -11,10 +12,11 @@ export class CourseLive extends Component {
     console.log(props);
 
     this.state = {
-      "question" : {
-        "text" : "",
-        "answers" : []
-      }
+      question : {
+        text : "",
+        answers : []
+      },
+      selected: new Set()
     }
   }
 
@@ -38,18 +40,37 @@ export class CourseLive extends Component {
     })
   }
 
+  onCheck(answer) {
+    var index = this.state.question.answers.indexOf(answer);
+    if (this.state.selected.has(index)) {
+      this.state.selected.delete(index);
+    } else {
+      this.state.selected.add(index);
+    }
+
+    this.setState({selected: this.state.selected});
+  }
+
+  isChecked(answer) {
+    var index = this.state.question.answers.indexOf(answer);
+    return this.state.selected.has(index);
+  }
+
+
   render() {
-    console.log(this.state);
     return(
       <div>
         <div>
           <h2>{this.state.question.text}</h2>
 
-          <ul>
             {this.state.question.answers.map(answer =>
-              <li>{answer}</li>
+              <Checkbox
+                key={answer}
+                label={answer}
+                checked={this.isChecked(answer)}
+                onCheck={this.onCheck.bind(this, answer)}
+              />
             )}
-          </ul>
         </div>
       </div>
     )
