@@ -5,6 +5,7 @@ import * as firebase from 'firebase'
 
 export class Courses extends Component {
   constructor(props) {
+    console.log("Courses constructor");
     super(props);
     this.state = {
       "courses" : []
