@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {CourseItem} from "./CourseItem";
 
 import * as firebase from 'firebase'
 
@@ -32,9 +33,10 @@ export class Courses extends Component {
         </div>
 
         <ul>
-          {this.state.courses.map(course =>
-            <li key={course.id}>{course.id} - {course.name} by {course.professor}</li>
-          )}
+            {this.state.courses.map(course =>
+                <CourseItem key={course.id} {...course}/>
+            )}
+
         </ul>
       </div>
     )
