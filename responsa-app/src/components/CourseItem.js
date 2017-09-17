@@ -1,10 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 export const CourseItem = (props) =>
 {
     return (
         <li>
-            <h3>{props.name}</h3>
+            <Link to={`/courseLive/${props.id}`}>{props.name}</Link>
             <h4>{props.professor}</h4>
         </li>
     )

@@ -3,6 +3,7 @@ import {Home, Courses, Teacher} from './components';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import './App.css';
+import {CourseLive} from "./components/CourseLive";
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
         <Route exact path="/" component={Home}/>
         <Route path="/courses" component={Courses}/>
         <Route path="/teacher" component={Teacher}/>
+        <Route path="/courseLive/:courseId" component={CourseLive} />
 
     </div>
   </Router>
